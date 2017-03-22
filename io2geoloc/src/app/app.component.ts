@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 
+import { Geolocation } from '@ionic-native/geolocation';
 
 @Component({
   templateUrl: 'app.html'
@@ -18,6 +19,20 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
+
+      Geolocation.getCurrentPosition().then((resp) => {
+        // resp.coords.latitude
+        // resp.coords.longitude
+      }).catch((error) => {
+        console.log('Error getting location', error);
+      });
+
+      // let watch = Geolocation.watchPosition();
+      // watch.subscribe((data) => {
+      //   // data can be a set of coordinates, or an error (if an error occurred).
+      //   // data.coords.latitude
+      //   // data.coords.longitude
+      // });
     });
   }
 }

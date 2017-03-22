@@ -15,5 +15,19 @@ ionic info
 # Creation steps 
 ```
 ionic start --v2 io2geoloc blank
+cd io2geoloc
 ionic platform add android
+```
+
+# Geolocation's hello world
+Follow the instructions at https://ionicframework.com/docs/v2/native/geolocation/
+```
+ionic plugin add cordova-plugin-geolocation
+npm install --save @ionic-native/geolocation
+```
+and copy paste the code from the offcial documentation into app.component.ts
+
+And try to build the application:
+```
+ionic serve
 ```

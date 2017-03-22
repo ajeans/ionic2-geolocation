@@ -11,6 +11,7 @@ ionic info
 	OS: Linux 4.4
 	Node Version: v7.7.3
 	Xcode version: Not installed
+```
 
 # Creation steps 
 ```

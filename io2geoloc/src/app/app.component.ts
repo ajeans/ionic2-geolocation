@@ -11,18 +11,18 @@ import { Geolocation } from '@ionic-native/geolocation';
   templateUrl: 'app.html'
 })
 export class MyApp {
+
   rootPage = HomePage;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private geolocation: Geolocation) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
 
-      Geolocation.getCurrentPosition().then((resp) => {
-        // resp.coords.latitude
-        // resp.coords.longitude
+      geolocation.getCurrentPosition().then((pos) => {
+        console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
       }).catch((error) => {
         console.log('Error getting location', error);
       });
